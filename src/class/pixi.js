@@ -18,18 +18,20 @@ export default class Game {
             stroke: "#fff",
             wordWrap: true,
             fill: ['#fff'],
-            // lineHeight: 30,
             align:'left',
             ...config
         })
         const text = new this.PIXI.Text(str, style)
-        // if (left) {
-            // const width = window.innerWidth - 2 * left
-            // text.width = width
-        // }
         text.position.set(left, top)
         text.name = config.name
         this.game.stage.addChild(text)
 
+    }
+    createSprite(url){
+        const sprite = this.PIXI.Sprite.from(url)
+        return sprite
+    }
+    addAnimation(fn){
+        this.game.ticker.add(fn)
     }
 }
